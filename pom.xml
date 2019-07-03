@@ -20,15 +20,21 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.scalatest</groupId>
                 <artifactId>scalatest-maven-plugin</artifactId>
-                <version>1.0-M2</version>
+                <version>1.0</version>
                 <configuration>
-                    <reportsDirectory>${project.build.directory}/scalatest-reports</reportsDirectory>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <junitxml>.</junitxml>
-                    <testFailureIgnore>true</testFailureIgnore>
                     <filereports>WDF TestSuite.txt</filereports>
-                    <forkMode>never</forkMode>
                 </configuration>
                 <executions>
                     <execution>
@@ -36,13 +42,6 @@
                         <goals>
                             <goal>test</goal>
                         </goals>
-                        <!--<configuration>-->
-                        <!--<membersOnlySuites>${membersOnlySuites}</membersOnlySuites>-->
-                        <!--<suites>${suites}</suites>-->
-                        <!--<tagsToExclude>${tagsToExclude}</tagsToExclude>-->
-                        <!--<tagsToInclude>${tagsToInclude}</tagsToInclude>-->
-                        <!--<wildcardSuites>${wildcardSuites}</wildcardSuites>-->
-                        <!--</configuration>-->
                     </execution>
                 </executions>
             </plugin>
