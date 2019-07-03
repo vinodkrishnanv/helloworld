@@ -7,6 +7,45 @@
     <groupId>com.nielsen.mcm.poc</groupId>
     <artifactId>helloworld</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.0.5</version>
+            <scope>test</scope>
+        </dependency>
 
+    </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest-maven-plugin</artifactId>
+                <version>1.0-M2</version>
+                <configuration>
+                    <reportsDirectory>${project.build.directory}/scalatest-reports</reportsDirectory>
+                    <junitxml>.</junitxml>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <filereports>WDF TestSuite.txt</filereports>
+                    <forkMode>never</forkMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <!--<configuration>-->
+                        <!--<membersOnlySuites>${membersOnlySuites}</membersOnlySuites>-->
+                        <!--<suites>${suites}</suites>-->
+                        <!--<tagsToExclude>${tagsToExclude}</tagsToExclude>-->
+                        <!--<tagsToInclude>${tagsToInclude}</tagsToInclude>-->
+                        <!--<wildcardSuites>${wildcardSuites}</wildcardSuites>-->
+                        <!--</configuration>-->
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
